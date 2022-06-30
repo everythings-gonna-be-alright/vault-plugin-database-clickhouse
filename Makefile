@@ -2,9 +2,14 @@
 # Be sure to place this BEFORE `include` directives, if any.
 
 GO_VERSION_MIN=1.17.11
-GO_CMD?=go
 
-default: build
+default: build-linux-arm64
 
-build:
-	$(GO_CMD) build -o bin/clickhouse-database-plugin .
+build-linux-amd64:
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/linux-amd64/clickhouse-database-plugin ./clickhouse-database-plugin
+
+build-linux-arm64:
+	@CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o bin/linux-arm64/clickhouse-database-plugin ./clickhouse-database-plugin
+
+build-darwin-arm64:
+	@CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o bin/darwin-arm64/clickhouse-database-plugin ./clickhouse-database-plugin
