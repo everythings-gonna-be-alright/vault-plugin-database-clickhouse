@@ -1,11 +1,10 @@
 package main
 
 import (
-	clickhouse "_vault-plugin-database-clickhouse"
+	dbplugin "github.com/hashicorp/vault/sdk/database/dbplugin/v5"
 	"log"
 	"os"
-
-	dbplugin "github.com/hashicorp/vault/sdk/database/dbplugin/v5"
+	clickhouse "vault-plugin-database-clickhouse"
 )
 
 func main() {
