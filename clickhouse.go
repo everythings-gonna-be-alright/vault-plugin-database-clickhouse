@@ -17,7 +17,7 @@ import (
 
 const (
 	clickhouseTypeName             = "clickhouse"
-	defaultChangePasswordStatement = "ALTER USER '{{username}}' IDENTIFIED WITH plaintext_password '{{password}}' OM CLUSTER '{{cluster}}';"
+	defaultChangePasswordStatement = "ALTER USER '{{username}}' IDENTIFIED WITH plaintext_password '{{password}}' ON CLUSTER '{{cluster}}';"
 	expirationFormat               = "2006-01-02 15:04:05"
 	defaultUserNameTemplate        = `{{ printf "v-%s-%s-%s-%s" (.DisplayName | truncate 8) (.RoleName | truncate 8) (random 20) (unix_time) | truncate 63 }}`
 )
